@@ -3,7 +3,7 @@
 #include <unordered_map>
 #include <queue>
 #include <functional>
-#include <climits> // Include this header for INT_MAX
+#include <climits> 
 
 using namespace std;
 
@@ -17,7 +17,7 @@ public:
         int srcIndex = src - 'A';
         int destIndex = dest - 'A';
         adjList[srcIndex].push_back(make_pair(dest, cost));
-        adjList[destIndex].push_back(make_pair(src, cost)); // For an undirected graph
+        adjList[destIndex].push_back(make_pair(src, cost)); 
     }
 
     bool beamSearch(char start, char goal, unordered_map<char, char>& parent, int beamWidth) {
@@ -29,7 +29,7 @@ public:
             int cost;
 
             bool operator<(const BeamNode& other) const {
-                return cost > other.cost; // Min-heap based on cost
+                return cost > other.cost; 
             }
         };
 
@@ -66,7 +66,7 @@ public:
             candidatesExplored++;
         }
 
-        return false; // No path to the goal
+        return false; 
     }
 private:
     int numVertices;
@@ -93,7 +93,7 @@ int main() {
         parent[c] = '\0';
     }
 
-    int beamWidth = 7; // Adjust the beam width as needed
+    int beamWidth = 7;
 
     if (graph.beamSearch(start, goal, parent, beamWidth)) {
         cout << "Path found!" << endl;
