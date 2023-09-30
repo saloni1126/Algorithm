@@ -15,7 +15,7 @@ public:
         int srcIndex = src - 'A';
         int destIndex = dest - 'A';
         adjList[srcIndex].push_back(dest);
-        adjList[destIndex].push_back(src); // For an undirected graph
+        adjList[destIndex].push_back(src); 
     }
 
     bool bfs(char start, char goal, unordered_map<char, char>& parent) {
@@ -33,7 +33,7 @@ public:
             q.pop();
 
             if (current == goal) {
-                return true; // Found a path to the goal
+                return true; 
             }
 
             for (char neighbor : adjList[current - 'A']) {
@@ -45,7 +45,7 @@ public:
             }
         }
 
-        return false; // No path to the goal
+        return false; 
     }
 private:
     int numVertices;
